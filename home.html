@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=">
+ 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">    <title>Blind tech agent</title>  <style>
+      body {
+background:#B0E0E6; 
+盖尔语
+富拉尼语
+弗留利语      margin: 0;
+      padding: 0;
+          font-family: "Lato", sans-serif;
+    }
+.nav{background:#A0CFEC;  width:100%; height:80px; border:0px; }     .clock {
+      height:50vh;
+      width: 100%;
+      background-color:#7FFF00;
+      color:#B041FF;
+padding:6px 0px;      display:block;
+   border:0px;    align-items: center;
+      justify-content: center;}
+#date{color:blue; font-size:45px; text-align:center; margin-top:15px; }     #time{color:blue; font-size:60px; text-align:center;}  
+ hr{background:black; height:7px; margin:0px; }   
+ .load  {
+  width:170px;
+  height:155px;
+border:4px solid black; border-radius:15px;   background:#79BAEC;
+  position: relative;
+  animation: mymove 3s infinite alternate;
+}
+
+@keyframes mymove {
+  from {left: 0px;}
+  to {left: 180px;}
+.text { color:black; text-align:center; margin-top:20px; 
+ font-size:55px;  } 
+ </style>
+</head>
+
+<body onload="startTime()">
+<center> <table onload="play()" class="nav"> 
+<tr>    <td> <i class="fa fa-spinner fa-spin fa-2x" onclick="location.href='go:nav'" title="Open navegation drower button"></i>
+</td>   <td> <i class="fa fa-file fa-flip-horizontal" onclick="location.href='http://action_notifications'" title="notification button"> </i>     </td>  <td>     <i class="fa fa-share" onclick="location.href='http://action_share'" title="share app button"> </i>  </td>     </tr>
+</table> 
+     
+
+<br>
+<div class="clock">  
+<p id="date">    </p>
+<hr>
+<p id="time">  </p>
+</div>
+</center>
+<div class="load">  <img src="https://te.legra.ph/file/9b4f2962863dcb6531c10.jpg" onclick="location.href='https://youtube.com/c/BlindTechAgent'" width="170px" height="150px" alt="Blind tech agent logo"></img>
+</div> 
+
+<script type="text/javascript">
+var tday=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+var tmonth=["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+function GetClock(){
+var d=new Date();
+var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getFullYear();
+var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds();
+if(nmin<=9) nmin="0"+nmin;
+if(nsec<=9) nsec="0"+nsec;
+
+var clocktext=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+"";
+document.getElementById('date').innerHTML=clocktext;
+}
+
+GetClock();
+setInterval(GetClock,1000);
+</script>
+
+<script type="text/javascript">
+
+function GetClock(){
+var date = new Date();
+ var hours = date.getHours() > 12 ? date.getHours() - 12 : date.getHours();
+ var am_pm = date.getHours() >= 12 ? "PM" : "AM";
+        hours = hours < 10 ? "0" + hours : hours;
+ var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+ var seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+var time = hours + ":" + minutes + am_pm;  document.getElementById('time').innerHTML=time;
+
+
+
+
+}
+
+GetClock();
+setInterval(GetClock,1000);
+</script>
+<script>
+function play() {
+                /* Audio link for notification */
+                var mp3 = '<source src="welcome.mp3" type="audio/mpeg">';
+                document.getElementById("sound").innerHTML = 
+                '<audio autoplay="autoplay">' + mp3 + "</audio>";
+}
+
+</script>
+</body>
+
+</html>
