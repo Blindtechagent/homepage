@@ -65,11 +65,11 @@ border:4px solid black; border-radius:15px;   background:#79BAEC;
  font-size:55px;  } 
  </style>
 </head>
-<body onload="myFunction()">
+<body onload="myFunction(); play();">
 <div id="loader"> <p>LOADING</p>   </div>
 <div style="display:none;" id="myDiv" class="animate-bottom">
 
-<center> <table onload="play()" class="nav"> 
+<center> <table class="nav"> 
 <tr>    <td> <i class="fa fa-spinner fa-spin fa-2x" onclick="location.href='go:nav'" title="Open navegation drower button"></i>
 </td>   <td> <i class="fa fa-file fa-flip-horizontal" onclick="location.href='http://action_notifications'" title="notification button"> </i>     </td>  <td>     <i class="fa fa-share" onclick="location.href='http://action_share'" title="share app button"> </i>  </td>     </tr>
 </table> 
