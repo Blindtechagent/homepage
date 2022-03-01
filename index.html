@@ -40,7 +40,9 @@ border:4px solid black; border-radius:17px;   background: #79BAEC;
 }
 @keyframes grt { 0% {background:doctorblue; color:yellow; } 50% {background:white; color:black; } 100% {background:khaki; color:blue; }
 }
-.tbox{ background:tomato; color:white; display:block; margin:30px 20px; width:260px; border:none; padding:px 0px;
+.tbox{ background:tomato; color:white; display:flex; margin:25px 10px; width:155px; border:none; padding:5px 0px;
+}
+.fr { display:flex; 
 }   
 .container {
   min-height: 100vh;
@@ -105,21 +107,23 @@ background:#FF8DFF;
 </div>
 
 	<div id="Features" class="tab__content">
-
-<center> 
+<div class="fr"> 
+<div class="b1">
 <button class="tbox" onclick="location.href='go:cal'">calculator</button>
 <button class="tbox" onclick="location.href='go:chat'">chat room</button>
-<button class="tbox" onclick="location.href='go:quiz'">play quiz</button>
 <button class="tbox" onclick="location.href='go:lvtv'">live tv channels</button>
+<button class="tbox" onclick="location.href='go:notepad'">Notepad</button>
+<button class="tbox" onclick="location.href='go:quiz'">play quiz</button>
 <button class="tbox" onclick="location.href='go:anelizer'">text anelicer</button>
 <button class="tbox" onclick="location.href='go:tts'">text to speech</button>
+</div>  <div class="b2">
 <button class="tbox" onclick="location.href='go:translator'">translator</button>
 <button class="tbox" onclick="location.href='go:web'">useful websites</button>
 <button class="tbox" onclick="location.href='go:wa'">WhatsApp number link generator</button>
 <button class="tbox" onclick="location.href='go:ytch'">YouTube channels</button>
 <button class="tbox" onclick="location.href='go:ytdl'">YouTube downloader</button>
 <button class="tbox" onclick="location.href='go:yrnm'">your name ringtone maker</button>
-
+</div>  </div> 
 </div>
 <div class="tab__conatiner">
 		<button class="home tab">HOME, TAB</button>
