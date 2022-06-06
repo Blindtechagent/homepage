@@ -27,7 +27,7 @@ td{ border:3px solid black; width:30%;  align-items:center;}
 padding:6px 0px;      display:block;
    border:0px;    align-items: center;
       justify-content: center;}
-#date{color:blue; font-size:45px; text-align:center; margin-top:17px; }     #time{color:blue; font-size:60px; text-align:center;}  
+#date,{color:blue; font-size:45px; text-align:center; margin-top:17px; }     #time{color:blue; font-size:60px; text-align:center;}  
  hr{background:black; height:7px; margin:20px 0px; }
  .load  {
   width:150px;
@@ -46,7 +46,7 @@ border:4px solid black; border-radius:17px;   background: #79BAEC;
 }   
 .container {
   min-height: 100vh;
-  display: grid;
+  display: none;
   grid-template-rows: 37rem 0.8fr;
 }
 .tab__conatiner {
@@ -84,13 +84,41 @@ border:4px solid black; border-radius:17px;   background: #79BAEC;
 background:#FF8DFF; 
 }
 .barbtn{background:; height:80%; width:35vw; font-size:16px; border: none; 
-} </style>
+}
+
+
+.remember { background:orange;  margin:0px;  padding:50px 0px; height:100vh;  
+}
+.lnbox { background:snow;  width:70%;  border:2px double blue;  border-radius:3px; display:block;  margin:auto;  padding:20px 0px;
+}
+#h1 { color:purple;  font-size:34px;  text-align:center;  margin:0px; }
+#entername { display:block; margin:20px auto;  background:skyblue;  color:red;
+}
+.ll { color:black; margin:10px; text-align:center; }
+#submitname { background:purple;  color:white;  width:40%;  height:4vh;  border:none;  display:block; margin:10px auto;
+}
+ </style>
 </head>
 <body onload="play()">
 <!-- partial:index.partial.html -->
-<div class="container">
-	
-	<div id="Home" class="tab__content active">
+<form>
+<div class="remember">
+<h1 id="h1">YOUR NAME</h1>
+<br>
+<br>
+<br>
+<div class="lnbox">
+<br>
+<p class="ll">Please enter your name</p>
+<p class="ll">This name will appear on home page</p>
+      <input id="entername" type="text" required placeholder="enter here" autocomplete="off" />
+      <input id="submitname" type="submit" value="save" />
+</div>    </div>
+
+</form>
+<main class="container">
+<h1></h1>
+<div id="Home" class="tab__content active">
 <center> <table class="nav"> 
 <tr>    <td> <button class="barbtn" onclick="location.href='go:nav'"> <i class="fas fa-angle-double-right" style="font-size:34px; color:black;"></i>Open navigation drawer
 </button>
@@ -106,7 +134,7 @@ background:#FF8DFF;
 </div> 
 </div>
 
-	<div id="Features" class="tab__content">
+<div id="Features" class="tab__content">
 <div class="fr"> 
 <div class="b1">
 <button class="tbox" onclick="location.href='go:age'">age calculator</button>
@@ -126,6 +154,7 @@ background:#FF8DFF;
 <button class="tbox" onclick="location.href='go:ytch'">YouTube channels</button>
 <button class="tbox" onclick="location.href='go:ytdl'">YouTube downloader</button>
 <button class="tbox" onclick="location.href='go:yrnm'">your name ringtone maker</button>
+<button class="tbox" id="forgetname">delete account</button>
 </div>  </div> 
 </div>
 <div class="tab__conatiner">
@@ -133,7 +162,7 @@ background:#FF8DFF;
 <button class="features tab">FEATURES, TAB</button>
 </div>
 
-</div>
+</main>
 <div id="sound" style="display:none;"></div>
 <!-- partial -->
   <script> const pairs = {
@@ -206,15 +235,65 @@ function play() {
 <script>
 const time = new Date().getHours();
 let greeting;
-if (time < 12) {
- greeting = "Good morning user";
-}  if (time >= 12)  {
- greeting = "Good afternoon user";
-} 
- if (time >= 17) {
-greeting = "Good evening user!"; } 
-if (time >= 21) { greeting = "Good night user";}     document.getElementById("greeting").innerHTML = greeting;
- </script>
+
+
+const rememberMe = document.querySelector(".remember");
+
+const form = document.querySelector("form");
+const getName = document.querySelector("#entername");
+const submitBtn = document.querySelector("#submitname");
+const content = document.querySelector(".container");
+const forgetBtn = document.querySelector("#forgetname");
+
+
+
+
+form.addEventListener("submit", function (e) {  e.preventDefault();  }
+);
+
+submitBtn.addEventListener("click", function () {
+  localStorage.setItem("name", getName.value);
+
+  nameDisplayCheck();
+});
+
+forgetBtn.addEventListener("click", function () {
+  localStorage.removeItem("name");
+
+  nameDisplayCheck();
+});
+
+function nameDisplayCheck() {
+  if (localStorage.getItem("name")) {
+    let name = localStorage.getItem("name");
+if(time < 12) {
+greeting = "good morning "+name+"";
+}
+else if(time < 17) {
+greeting = "good afternoon "+name+"";
+}
+else if(time < 22) {
+greeting = "good evening "+name+"";
+}
+else {
+greeting = "good night "+name+"";
+}
+document.getElementById('greeting').innerHTML = greeting;
+
+ forgetBtn.style.display = "block";
+    rememberMe.style.display = "none";
+    content.style.display = "grid";
+  } else {
+
+
+
+    forgetBtn.style.display = "none";
+    rememberMe.style.display = "block";
+    content.style.display = "none";
+  }
+}
+
+document.body.onload = nameDisplayCheck;   </script>
 
 </body>
 </html>
