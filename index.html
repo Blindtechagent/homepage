@@ -96,7 +96,8 @@ form { background:orange; display:block;  margin:0px;  padding:50px 0px; width:1
 .ll { color:black; margin:10px; text-align:center; }
 #submitname { background:purple;  color:white;  width:40%;  height:4vh;  border:none;  display:block; margin:10px auto;
 }
-
+#forgetname { display:none;
+}
  </style>
 </head>
 <body onload="play()">
@@ -125,7 +126,7 @@ form { background:orange; display:block;  margin:0px;  padding:50px 0px; width:1
 <tr>    <td> <button class="barbtn" onclick="location.href='go:nav'"> <i class="fas fa-angle-double-right" style="font-size:34px; color:black;"></i>Open navigation drawer
 </button>
 </td>   <td> <button class="barbtn" onclick="location.href='http://action_notifications'"> <i class="material-icons" style="font-size:34px; color:gold;">notifications</i>     </td>  <td>     <button class="barbtn" onclick="location.href='http://action_share'"> <i class="material-icons" style="font-size:34px;">share </i> </button>
-
+<button id="forgetname">delete</button>
  </td>     </tr>
 </table> 
 <div class="clock">  
@@ -286,7 +287,7 @@ greeting = "good night "+name+"!, <br> it's time to sleep.";
 }
 document.getElementById('greeting').innerHTML = greeting;
 
- forgetBtn.style.display = "block";
+ forgetBtn.style.display = "none";
  form.style.display = "none";
     rememberMe.style.display = "none";
     content.style.display = "grid";
