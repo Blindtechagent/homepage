@@ -96,7 +96,7 @@ form { background:orange; display:block;  margin:0px;  padding:50px 0px; width:1
 .ll { color:black; margin:10px; text-align:center; }
 #submitname { background:purple;  color:white;  width:40%;  height:4vh;  border:none;  display:block; margin:10px auto;
 }
-#forgetname { 
+#forgetname { display:none;
 }
  </style>
 </head>
@@ -278,7 +278,7 @@ greeting = "good night "+name+"!, <br> it's time to sleep.";
 }
 document.getElementById('greeting').innerHTML = greeting;
 
- forgetBtn.style.display = "block";
+ forgetBtn.style.display = "none";
  form.style.display = "none";
     rememberMe.style.display = "none";
     content.style.display = "grid";
