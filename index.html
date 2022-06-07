@@ -96,11 +96,11 @@ form { background:orange; display:block;  margin:0px;  padding:50px 0px; width:1
 .ll { color:black; margin:10px; text-align:center; }
 #submitname { background:purple;  color:white;  width:40%;  height:4vh;  border:none;  display:block; margin:10px auto;
 }
-#forgetname { display:none;
+#forgetname { 
 }
  </style>
 </head>
-<body onload="play()">
+<body>
 <!-- partial:index.partial.html -->
 <form>
 <div class="remember">
@@ -169,7 +169,7 @@ form { background:orange; display:block;  margin:0px;  padding:50px 0px; width:1
 </div>
 
 </div>
-<div id="sound" style="display:none;"></div>
+
 <!-- partial -->
   <script> const pairs = {
 	home: "Home",
@@ -229,15 +229,6 @@ var time = hours + ":" + minutes + am_pm;  document.getElementById('time').inner
 GetClock();
 setInterval(GetClock,1000);
 </script>
-<script>
-function play() {
-                /* Audio link for notification */
-                var mp3 = '<source src="welcome.mp3" type="audio/mpeg">';
-                document.getElementById("sound").innerHTML = 
-                '<audio autoplay="autoplay">' + mp3 + "</audio>";
-}
-
-</script>
 
 <script>
 const time = new Date().getHours();
@@ -287,7 +278,7 @@ greeting = "good night "+name+"!, <br> it's time to sleep.";
 }
 document.getElementById('greeting').innerHTML = greeting;
 
- forgetBtn.style.display = "none";
+ forgetBtn.style.display = "block";
  form.style.display = "none";
     rememberMe.style.display = "none";
     content.style.display = "grid";
