@@ -7,9 +7,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 <style>  * {
-  padding: 0;
-  margin: 0;
-
+  padding: 0;  margin: 0;
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -17,7 +15,7 @@ body {
   max-height: 100vh;
   overflow: hidden;
 }
-.nav{background:#A0CFEC;  width:100%; height:80px; border:0px; } 
+.nav{background:#A0CFEC;  width:100%; height:80px; border:none; } 
 td{ border:3px solid black; width:30%;  align-items:center;}
  .clock {
       height:50vh;
@@ -25,7 +23,7 @@ td{ border:3px solid black; width:30%;  align-items:center;}
       background-color:#7FFF00;
       color:#B041FF;
 padding:6px 0px;      display:block;
-   border:0px;    align-items: center;
+   border:none;    align-items: center;
       justify-content: center;}
 #date{color:blue; font-size:45px; text-align:center; margin-top:17px; }     #time{color:blue; font-size:60px; text-align:center;}  
  hr{background:black; height:7px; margin:20px 0px; }
@@ -101,23 +99,6 @@ form { background:orange; display:block;  margin:0px;  padding:50px 0px; width:1
  </style>
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<form>
-<div class="remember">
-<h1 id="h1">YOUR NAME</h1>
-<br>
-<br>
-<br>
-<div class="lnbox">
-<br>
-<p class="ll">Please enter your name</p>
-<p class="ll">This name will appear on home page</p>
-      <input id="entername" type="text" required placeholder="enter here" autocomplete="off" />
-      <input id="submitname" type="submit" value="save" />
-</div>    </div>
-
-</form>
-
 
 <div class="container">
 	
@@ -170,66 +151,21 @@ form { background:orange; display:block;  margin:0px;  padding:50px 0px; width:1
 
 </div>
 
-<!-- partial -->
-  <script> const pairs = {
-	home: "Home",
-features: "Features"
-};
+<form>
+<div class="remember">
+<h1 id="h1">YOUR NAME</h1>
+<br>
+<br>
+<br>
+<div class="lnbox">
+<br>
+<p class="ll">Please enter your name</p>
+<p class="ll">This name will appear on home page</p>
+      <input id="entername" type="text" required placeholder="enter here" autocomplete="off" />
+      <input id="submitname" type="submit" value="save" />
+</div>    </div>
 
-const tabs = document.querySelectorAll(".tab");
-
-const callback = function () {
-	const ACTIVE = "active";
-
-	const active = document.querySelector(`.tab__content.${ACTIVE}`);
-
-	active.classList.remove(ACTIVE);
-
-	const tabName = this.classList[0];
-	const tabContent = document.getElementById(pairs[tabName]);
-
-	tabContent.classList.add(ACTIVE);
-};
-
-tabs.forEach((tab) => tab.addEventListener("click", callback));   </script>
-<script type="text/javascript">
-var tday=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-var tmonth=["January","February","March","April","May","June","July","August","September","October","November","December"];
-
-function GetClock(){
-var d=new Date();
-var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getFullYear();
-var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds();
-if(nmin<=9) nmin="0"+nmin;
-if(nsec<=9) nsec="0"+nsec;
-
-var clocktext=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+"";
-document.getElementById('date').innerHTML=clocktext;
-}
-
-GetClock();
-setInterval(GetClock,1000);
-</script>
-
-<script type="text/javascript">
-
-function GetClock(){
-var date = new Date();
- var hours = date.getHours() > 12 ? date.getHours() - 12 : date.getHours();
- var am_pm = date.getHours() >= 12 ? "PM" : "AM";
- var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
- var seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-var time = hours + ":" + minutes + am_pm;  document.getElementById('time').innerHTML=time;
-
-
-
-
-}
-
-GetClock();
-setInterval(GetClock,1000);
-</script>
-
+</form>
 <script>
 const time = new Date().getHours();
 let greeting;
@@ -294,6 +230,66 @@ document.getElementById('greeting').innerHTML = greeting;
 }
 
 document.body.onload = nameDisplayCheck;   </script>
+  <script> const pairs = {
+	home: "Home",
+features: "Features"
+};
+
+const tabs = document.querySelectorAll(".tab");
+
+const callback = function () {
+	const ACTIVE = "active";
+
+	const active = document.querySelector(`.tab__content.${ACTIVE}`);
+
+	active.classList.remove(ACTIVE);
+
+	const tabName = this.classList[0];
+	const tabContent = document.getElementById(pairs[tabName]);
+
+	tabContent.classList.add(ACTIVE);
+};
+
+tabs.forEach((tab) => tab.addEventListener("click", callback)); 
+
+
+ var tday=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+var tmonth=["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+function GetClock(){
+var d=new Date();
+var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getFullYear();
+var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds();
+if(nmin<=9) nmin="0"+nmin;
+if(nsec<=9) nsec="0"+nsec;
+
+var clocktext=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+"";
+document.getElementById('date').innerHTML=clocktext;
+}
+
+GetClock();
+setInterval(GetClock,1000);
+</script>
+
+<script type="text/javascript">
+
+function GetClock(){
+var date = new Date();
+ var hours = date.getHours() > 12 ? date.getHours() - 12 : date.getHours();
+ var am_pm = date.getHours() >= 12 ? "PM" : "AM";
+ var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+ var seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+var time = hours + ":" + minutes + am_pm;  document.getElementById('time').innerHTML=time;
+
+
+
+
+}
+
+GetClock();
+setInterval(GetClock,1000);
+</script>
+
 
 
 </body>
